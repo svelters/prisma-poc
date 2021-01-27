@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: 'prismapoc-api'
+    build:
+      context: apps/api
+      target: dev
+    environment:
+      - NODE_ENV=development
+    ports:
+      - '80:3000'
+    volumes:
+      - ./apps/api:/app
+    restart: unless-stopped
+
+  db:
+    container_name: 'prismapoc-db'
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: prismapoc
+    image: postgres:13-alpine
+    ports:
+      - 5432:5432
+    restart: unless-stopped
