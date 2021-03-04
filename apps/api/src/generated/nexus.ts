@@ -19,12 +19,12 @@ declare global {
 }
 
 export interface NexusGenInputs {
-  PostCreateManyWithoutAuthorInput: { // input type
+  PostCreateNestedManyWithoutAuthorInput: { // input type
     connect?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
-    connectOrCreate?: NexusGenInputs['PostCreateOrConnectWithoutauthorInput'][] | null; // [PostCreateOrConnectWithoutauthorInput!]
+    connectOrCreate?: NexusGenInputs['PostCreateOrConnectWithoutAuthorInput'][] | null; // [PostCreateOrConnectWithoutAuthorInput!]
     create?: NexusGenInputs['PostCreateWithoutAuthorInput'][] | null; // [PostCreateWithoutAuthorInput!]
   }
-  PostCreateOrConnectWithoutauthorInput: { // input type
+  PostCreateOrConnectWithoutAuthorInput: { // input type
     create: NexusGenInputs['PostCreateWithoutAuthorInput']; // PostCreateWithoutAuthorInput!
     where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
   }
@@ -38,12 +38,12 @@ export interface NexusGenInputs {
   PostWhereUniqueInput: { // input type
     id?: number | null; // Int
   }
-  ProfileCreateOneWithoutUserInput: { // input type
+  ProfileCreateNestedOneWithoutUserInput: { // input type
     connect?: NexusGenInputs['ProfileWhereUniqueInput'] | null; // ProfileWhereUniqueInput
-    connectOrCreate?: NexusGenInputs['ProfileCreateOrConnectWithoutuserInput'] | null; // ProfileCreateOrConnectWithoutuserInput
+    connectOrCreate?: NexusGenInputs['ProfileCreateOrConnectWithoutUserInput'] | null; // ProfileCreateOrConnectWithoutUserInput
     create?: NexusGenInputs['ProfileCreateWithoutUserInput'] | null; // ProfileCreateWithoutUserInput
   }
-  ProfileCreateOrConnectWithoutuserInput: { // input type
+  ProfileCreateOrConnectWithoutUserInput: { // input type
     create: NexusGenInputs['ProfileCreateWithoutUserInput']; // ProfileCreateWithoutUserInput!
     where: NexusGenInputs['ProfileWhereUniqueInput']; // ProfileWhereUniqueInput!
   }
@@ -57,8 +57,8 @@ export interface NexusGenInputs {
   UserCreateInput: { // input type
     email: string; // String!
     name?: string | null; // String
-    posts?: NexusGenInputs['PostCreateManyWithoutAuthorInput'] | null; // PostCreateManyWithoutAuthorInput
-    profile?: NexusGenInputs['ProfileCreateOneWithoutUserInput'] | null; // ProfileCreateOneWithoutUserInput
+    posts?: NexusGenInputs['PostCreateNestedManyWithoutAuthorInput'] | null; // PostCreateNestedManyWithoutAuthorInput
+    profile?: NexusGenInputs['ProfileCreateNestedOneWithoutUserInput'] | null; // ProfileCreateNestedOneWithoutUserInput
   }
 }
 

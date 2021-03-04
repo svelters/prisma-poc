@@ -20,13 +20,13 @@ type Post {
   title: String
 }
 
-input PostCreateManyWithoutAuthorInput {
+input PostCreateNestedManyWithoutAuthorInput {
   connect: [PostWhereUniqueInput!]
-  connectOrCreate: [PostCreateOrConnectWithoutauthorInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutAuthorInput!]
   create: [PostCreateWithoutAuthorInput!]
 }
 
-input PostCreateOrConnectWithoutauthorInput {
+input PostCreateOrConnectWithoutAuthorInput {
   create: PostCreateWithoutAuthorInput!
   where: PostWhereUniqueInput!
 }
@@ -43,13 +43,13 @@ input PostWhereUniqueInput {
   id: Int
 }
 
-input ProfileCreateOneWithoutUserInput {
+input ProfileCreateNestedOneWithoutUserInput {
   connect: ProfileWhereUniqueInput
-  connectOrCreate: ProfileCreateOrConnectWithoutuserInput
+  connectOrCreate: ProfileCreateOrConnectWithoutUserInput
   create: ProfileCreateWithoutUserInput
 }
 
-input ProfileCreateOrConnectWithoutuserInput {
+input ProfileCreateOrConnectWithoutUserInput {
   create: ProfileCreateWithoutUserInput!
   where: ProfileWhereUniqueInput!
 }
@@ -78,6 +78,6 @@ type User {
 input UserCreateInput {
   email: String!
   name: String
-  posts: PostCreateManyWithoutAuthorInput
-  profile: ProfileCreateOneWithoutUserInput
+  posts: PostCreateNestedManyWithoutAuthorInput
+  profile: ProfileCreateNestedOneWithoutUserInput
 }
